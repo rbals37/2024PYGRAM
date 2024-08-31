@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     #Local apps
     'main',
     'login',
+    'signup',
 
     #Third party apps
     'django_extensions',

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'main',
     'login',
     'signup',
+    'board',
 
     #Third party apps
     'django_extensions',

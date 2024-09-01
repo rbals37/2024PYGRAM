@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     #Third party apps
     'django_extensions',
 
-    #Django ap
+    #Django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

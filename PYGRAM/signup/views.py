@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CustomSignupForm
 from django.contrib.auth import login as auth_login
+from django.contrib import messages
 
 # Create your views here.
 
@@ -13,6 +14,9 @@ def signup_view(request):
             user = form.save()
             auth_login(request, user)
             return redirect('main')
+        else:
+            messages.error(request, error)
+            
     else:
          form = CustomSignupForm()
 

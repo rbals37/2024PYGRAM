@@ -29,29 +29,13 @@
     <h1>로그인</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <label for="student_id">학번</label>
+        <input type="text" id="student_id" name="student_id" required>
+        <label for="password">비밀번호</label>
+      <input type="password" id="password" name="password" required>
         <button type="submit">로그인</button>
     </form>
   </div>
-  
-  <script>
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-
-  // 여기에서 로그인 로직을 추가할 수 있습니다.
-  // 예를 들어, 서버에 로그인 요청을 보낼 수 있습니다.
-  // 나중에 제작
-
-  if (username === 'admin' && password === 'password') {
-      alert('로그인 성공!');
-  } else {
-      alert('사용자 이름 또는 비밀번호가 잘못되었습니다.');
-  }
-});
-  </script>
 
   <footer>
     <p>&copy; 2024 PYGRAM</p>

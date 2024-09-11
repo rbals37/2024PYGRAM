@@ -16,8 +16,7 @@ def signup_view(request):
             auth_login(request, user)
             return redirect('main')
         else:
-            for error in form.errors.values():
-                messages.error(request, error)            
+            messages.error(request, '잘못 입력하셨습니다.')            
     else:
          form = CustomSignupForm()
 

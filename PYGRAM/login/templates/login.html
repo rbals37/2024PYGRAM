@@ -6,6 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인</title>
+  <script>
+    // 팝업 메시지를 표시하는 함수
+    function showAlert(message) {
+        alert(message);  // 팝업 창 띄우기
+    }
+  </script>
   <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 <body>
@@ -16,47 +22,44 @@
   </header>
 
   <nav>
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">로그아웃</a>
+    <a href="{% url 'board' %}">게시판</a>
+    {% else %}
     <a href="{%url 'signup'%}">회원가입</a>
     <a href="{% url 'login' %}">로그인</a>
-    <a href="{% url 'board' %}">게시판</a>
+    {% endif %}
   </nav>
 
   <div class="login-container">
     <h1>로그인</h1>
-    <form id="login-form">
-      <div class="input-group">
-        <label for="username">아이디</label>
-        <input type="text" id="username" name="username" required>
-      </div>
-      <div class="input-group">
-        <label for="password">비밀번호</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <button type="submit">로그인</button>
+    <form action="{%url 'login' %}" method = "POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="id_student_id">학번</label>
+          <input type="text" name="student_id" id="id_student_id" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="id_password">비밀번호</label>
+          <input type="password" name="password" id="id_password" class="form-control" required>
+        </div>
+        
+        <button type="submit">로그인</button>
     </form>
   </div>
-  
-  <script>
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-
-  // 여기에서 로그인 로직을 추가할 수 있습니다.
-  // 예를 들어, 서버에 로그인 요청을 보낼 수 있습니다.
-  // 나중에 제작
-
-  if (username === 'admin' && password === 'password') {
-      alert('로그인 성공!');
-  } else {
-      alert('사용자 이름 또는 비밀번호가 잘못되었습니다.');
-  }
-});
-  </script>
 
   <footer>
     <p>&copy; 2024 PYGRAM</p>
   </footer>
+  
+  {% if messages %}
+        <script>
+            {% for message in messages %}
+                // Django 메시지를 JavaScript alert로 띄우기
+                showAlert("{{ message }}");
+            {% endfor %}
+        </script>
+  {% endif %}
+
 </body>
 </html>

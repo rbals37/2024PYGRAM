@@ -6,6 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인</title>
+  <script>
+    // 팝업 메시지를 표시하는 함수
+    function showAlert(message) {
+        alert(message);  // 팝업 창 띄우기
+    }
+  </script>
   <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 <body>
@@ -29,7 +35,15 @@
     <h1>로그인</h1>
     <form action="{%url 'login' %}" method = "POST">
         {% csrf_token %}
-        {{ form.as_p}}
+        <div class="form-group">
+          <label for="id_student_id">학번</label>
+          <input type="text" name="student_id" id="id_student_id" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="id_password">비밀번호</label>
+          <input type="password" name="password" id="id_password" class="form-control" required>
+        </div>
+        
         <button type="submit">로그인</button>
     </form>
   </div>
@@ -37,5 +51,15 @@
   <footer>
     <p>&copy; 2024 PYGRAM</p>
   </footer>
+  
+  {% if messages %}
+        <script>
+            {% for message in messages %}
+                // Django 메시지를 JavaScript alert로 띄우기
+                showAlert("{{ message }}");
+            {% endfor %}
+        </script>
+  {% endif %}
+
 </body>
 </html>

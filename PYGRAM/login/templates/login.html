@@ -14,7 +14,10 @@
   </script>
   <link rel="stylesheet" href="{% static 'common-header.css' %}">
   <link rel="stylesheet" href="{% static 'login.css' %}">
+  <link rel="stylesheet" href="{% static 'common-button.css' %}">
+
 </head>
+
 <body>
   <header>
     <h1>
@@ -34,9 +37,16 @@
 
   <div class="login-container">
     <h1>로그인</h1>
-    <form action="{%url 'login' %}" method = "POST">
+    <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
-        {{form.as_p}}
+        <div>
+            <label for="student_id">학번</label>
+            <input type="text" name="student_id" id="student_id" placeholder="학번" maxlength="5" required>
+        </div>
+        <div>
+            <label for="password">비밀번호</label>
+            <input type="password" name="password" id="password" placeholder="비밀번호" required>
+        </div>
         <button type="submit">로그인</button>
     </form>
   </div>

@@ -1,24 +1,33 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
+from signup.models import CustomUser
+
 
 
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
+        student_id = request.POST.get('student_id')
+        password = request.POST.get('password')
+
+        try:
+            user = CustomUser.objects.get(student_id=student_id)
+        except CustomUser.DoesNotExist:
+            messages.error(request, '잘못된 학번입니다.')
+            return redirect('login')
+        
+        
+        user = authenticate(request, student_id=student_id, password=password)
+        if user is not None:
             auth_login(request, user)
             return redirect('main')
         else:
-            messages.error(request, '잘못 입력하셨습니다.')            
-
-    else:
-        form = AuthenticationForm()
-
-    return render(request, 'login.html', {'form': form})
+            messages.error(request, '잘못된 비밀번호입니다.')
+    
+    
+    return render(request, "login.html")
 
 def logout_view(request):
     auth_logout(request)

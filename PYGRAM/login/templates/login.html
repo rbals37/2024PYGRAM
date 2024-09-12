@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인</title>
   <script>
-    // 팝업 메시지를 표시하는 함수
     function showAlert(message) {
-      alert(message);  // 팝업 창 띄우기
+      alert(message);
     }
   </script>
   <link rel="stylesheet" href="{% static 'common-header.css' %}">
   <link rel="stylesheet" href="{% static 'login.css' %}">
+  <link rel="stylesheet" href="{% static 'common-container.css' %}">
   <link rel="stylesheet" href="{% static 'common-button.css' %}">
 </head>
 
@@ -34,7 +34,7 @@
     {% endif %}
   </nav>
 
-  <div class="login-container">
+  <div class="container">
     <h2>로그인</h2>
     <form action="{% url 'login' %}" method="POST">
       {% csrf_token %}
@@ -51,7 +51,6 @@
   {% if messages %}
     <script>
       {% for message in messages %}
-        // Django 메시지를 JavaScript alert로 띄우기
         showAlert("{{ message }}");
       {% endfor %}
     </script>

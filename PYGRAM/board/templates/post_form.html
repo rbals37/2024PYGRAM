@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게시판 목록</title>
+  <title>글쓰기</title>
   <link rel="stylesheet" href="{% static 'common-header.css' %}">
   <link rel="stylesheet" href="{% static 'board.css' %}">
 </head>
@@ -25,17 +25,13 @@
     {% endif %}
   </nav>
   <main>
-    <h2>게시판 목록</h2>
-    <a href="{% url 'post_create' %}">글쓰기</a>
-    <ul>
-      {% for post in posts %}
-        <li>
-          <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a> - {{ post.author.get_full_name }} ({{ post.created_at }})
-        </li>
-      {% empty %}
-        <li>게시글이 없습니다.</li>
-      {% endfor %}
-    </ul>
+    <h2>글쓰기</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">저장</button>
+    </form>
+    <a href="{% url 'board' %}">목록으로 돌아가기</a>
   </main>
 </body>
 </html>

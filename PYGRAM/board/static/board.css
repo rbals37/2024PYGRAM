@@ -1,25 +1,22 @@
- 
-  /* Flexbox를 사용하여 컨테이너들을 수평으로 배치 */
-  .main-container {
-    display: flex;
-    justify-content: space-around; /* 컨테이너 사이에 동일한 간격을 둠 */
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  .post {
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  .container {
-    width: 45%;
-    margin: 10px auto;
-    max-width: 800px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-  }
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.post {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+.container {
+  width: 45%;
+  margin: 10px auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}

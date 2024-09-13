@@ -30,7 +30,14 @@
     <h2>글쓰기</h2>
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      <p>
+        <label for="id_title">제목:</label>
+        {{ form.title }}
+      </p>
+      <p>
+        <label for="id_content">내용:</label>
+        {{ form.content }}
+      </p>
       <button type="submit">저장</button>
     </form>
     <a href="{% url 'board' %}">목록으로 돌아가기</a>

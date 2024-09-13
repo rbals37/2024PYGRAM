@@ -33,7 +33,7 @@
       {% for post in posts %}
         <li>
           <a href="{% url 'post_detail' post.id %}" class="post-link">{{ post.title }}</a> 
-          - {{ post.author.get_full_name }} ({{ post.created_at }})
+          - {{ post.author.student_id }} {{ post.author.name }} ({{ post.created_at|date:"Y-m-d H:i" }})
         </li>
       {% empty %}
         <li>게시글이 없습니다.</li>

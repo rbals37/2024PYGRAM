@@ -31,15 +31,20 @@
     <form method="post">
       {% csrf_token %}
       <p>
+        <!-- 제목 필드 라벨 -->
         <label for="id_title">제목:</label>
-        {{ form.title }}
+        <!-- 제목 필드 입력 -->
+        <input type="text" name="title" id="id_title" maxlength="200" required>
       </p>
       <p>
+        <!-- 내용 필드 라벨 -->
         <label for="id_content">내용:</label>
-        {{ form.content }}
+        <!-- 내용 필드 입력 -->
+        <textarea name="content" id="id_content" required></textarea>
       </p>
       <button type="submit">저장</button>
     </form>
+    
     <a href="{% url 'board' %}">목록으로 돌아가기</a>
   </main>
 </body>

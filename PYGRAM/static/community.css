@@ -1,3 +1,156 @@
+/* 전부 적용 */
+
 div h2 {
   font-size: 60px; 
+}
+
+/* 헤더 */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header, nav {
+  padding: 10px;
+  color: #fff;
+  background-color: #333;
+}
+
+nav {
+  background-color: #444;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+}
+
+main h2, main a, main ul, main li, main p, main form {
+  color: inherit;
+  text-align: inherit;
+  padding: 0;
+  background-color: transparent;
+  border: none;}
+
+  /* 컨테이너 공통 스타일 */
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* 버튼 공통 스타일 */
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #aaa;
+}
+
+button:active {
+  background-color: #000;
+  color: #fff;
+}
+
+/* 버튼 스타일 */
+
+.create-post {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #000000;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.create-post:hover {
+  transform: scale(1.05);
+}
+
+.post-link {
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.post-link:hover {
+  text-decoration: underline;
+  color: #0c57b5;
+}
+
+main {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main li {
+  margin-bottom: 20px;
+}
+
+main ul {
+  margin: 10px auto;
+  padding: 15px;
+  border: 1px solid;
+  list-style-type: none;
+  width: 100%;
+  max-width: 600px;
+}
+
+main p {
+  size: 50px;
+}
+
+.post-content {
+  font-size: 18px;        /* 글꼴 크기 */
+  line-height: 1.6;       /* 줄 간격 */
+  color: #333;            /* 글자 색 */
+  background-color: #f9f9f9;  /* 배경 색 */
+  padding: 15px;          /* 내용 주변의 여백 */
+  border-radius: 5px;     /* 모서리 둥글게 */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 게시판 스타일 */
+
+main {
+  text-align: center;
+  color: black;
 }
